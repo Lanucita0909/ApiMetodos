@@ -11,7 +11,8 @@ $database = new Database();
 $db = $database->getConnection();
 
 // Consulta para obtener todas las quejas
-$query = "SELECT id, atendido_por, descripcion, categoria, puntuacion, fecha_evento, fecha_registro FROM quejas_taxi ORDER BY fecha_registro DESC";
+$query = "SELECT id, atendido_por, descripcion, categoria, puntuacion, fecha_evento, fecha_registro, costo_viaje FROM quejas_taxi ORDER BY fecha_registro DESC";
+
 $stmt = $db->prepare($query);
 $stmt->execute();
 
@@ -32,7 +33,8 @@ if ($num > 0) {
             "categoria" => $categoria,
             "puntuacion" => $puntuacion,
             "fecha_evento" => $fecha_evento,
-            "fecha_registro" => $fecha_registro
+            "fecha_registro" => $fecha_registro,
+            "costo_viaje" => $costo_viaje
         ];
 
         array_push($quejas_arr["records"], $queja_item);

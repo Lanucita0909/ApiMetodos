@@ -24,10 +24,11 @@ if (
     !empty($data->descripcion) &&
     !empty($data->categoria) &&
     !empty($data->puntuacion) &&
-    !empty($data->fecha_evento)
+    !empty($data->fecha_evento) && isset($data->costo_viaje)
+
 ) {
-    $query = "INSERT INTO quejas_taxi (atendido_por, descripcion, categoria, puntuacion, fecha_evento) 
-              VALUES (:atendido_por, :descripcion, :categoria, :puntuacion, :fecha_evento)";
+    $query = "INSERT INTO quejas_taxi (atendido_por, descripcion, categoria, puntuacion, fecha_evento, costo_viaje) 
+          VALUES (:atendido_por, :descripcion, :categoria, :puntuacion, :fecha_evento, :costo_viaje)";
 
     $stmt = $db->prepare($query);
 
@@ -36,12 +37,15 @@ if (
     $categoria = htmlspecialchars(strip_tags($data->categoria));
     $puntuacion = intval($data->puntuacion);
     $fecha_evento = htmlspecialchars(strip_tags($data->fecha_evento));
+    $costo_viaje = floatval($data->costo_viaje);
 
     $stmt->bindParam(":atendido_por", $atendido_por);
     $stmt->bindParam(":descripcion", $descripcion);
     $stmt->bindParam(":categoria", $categoria);
     $stmt->bindParam(":puntuacion", $puntuacion);
     $stmt->bindParam(":fecha_evento", $fecha_evento);
+    $stmt->bindParam(":costo_viaje", $costo_viaje);
+
 
     if ($stmt->execute()) {
         http_response_code(201);
