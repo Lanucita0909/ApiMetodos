@@ -5,7 +5,7 @@ $db = new Database();
 $conn = $db->getConnection();
 
 $sql = "
-CREATE TABLE IF NOT EXISTS quejas (
+CREATE TABLE IF NOT EXISTS quejas_taxi (
     id INT(11) NOT NULL AUTO_INCREMENT,
     atendido_por VARCHAR(100) NOT NULL,
     descripcion TEXT NOT NULL,
