@@ -8,8 +8,8 @@ $sql = "
 CREATE TABLE IF NOT EXISTS quejas (
     id INT(11) NOT NULL AUTO_INCREMENT,
     atendido_por VARCHAR(100) NOT NULL,
-    descripcion NOT NULL,
-    categoria VARCHAR(100)NOT NULL,
+    descripcion TEXT NOT NULL,
+    categoria VARCHAR(100) NOT NULL,
     puntuacion INT(11) NOT NULL,
     fecha_evento DATE NOT NULL,
     fecha_registro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
