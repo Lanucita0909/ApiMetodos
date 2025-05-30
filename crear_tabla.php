@@ -16,11 +16,13 @@ CREATE TABLE IF NOT EXISTS quejas_taxi (
     costo_viaje DECIMAL(10,2) NOT NULL,
     PRIMARY KEY (id)
 );
+
+drop table quejas;
 ";
 
 try {
     $conn->exec($sql);
-    echo "✅ Tabla 'quejas' creada correctamente.";
+    echo "✅ Tabla 'quejas_taxi' creada correctamente.";
 } catch (PDOException $e) {
     echo "❌ Error al crear la tabla: " . $e->getMessage();
 }
