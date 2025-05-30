@@ -1,5 +1,5 @@
 <?php
-require_once 'Database.php'; // Asegúrate de que este archivo exista y esté bien configurado
+require_once 'config/database.php'; // Asegúrate de que este archivo exista y esté bien configurado
 
 $db = new Database();
 $conn = $db->getConnection();
