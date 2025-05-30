@@ -5,17 +5,12 @@ class Database {
     public function getConnection() {
         $this->conn = null;
 
-        $url = "mysql://dilansalas200@gmail.com:qx7u83jvoxcfkanb@metodos-metodosbd-ljnklx:3306/apimetodos";
-
-        $url = rtrim($url, '}');
-
-        $parts = parse_url($url);
-
-        $host = $parts['host'];
-        $port = $parts['port'];
-        $user = $parts['user'];
-        $pass = $parts['pass'];
-        $dbname = ltrim($parts['path'], '/');
+        // Evitar el uso de parse_url con @ en el usuario
+        $host = "metodos-metodosbd-ljnklx";
+        $port = 3306;
+        $user = "dilansalas200@gmail.com";
+        $pass = "qx7u83jvoxcfkanb";
+        $dbname = "apimetodos";
 
         try {
             $this->conn = new PDO(
