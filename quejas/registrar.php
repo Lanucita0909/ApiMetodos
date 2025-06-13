@@ -1,21 +1,16 @@
 <?php
-// Configuración CORS completa - añade estos encabezados
+// CORS para dominio específico
 header("Access-Control-Allow-Origin: https://powderblue-termite-675995.hostingersite.com");
-header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 header("Access-Control-Max-Age: 3600");
+header("Content-Type: application/json; charset=UTF-8");
 
-// Responder a las solicitudes preflight OPTIONS
+// Manejar preflight
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    header("Access-Control-Allow-Origin: https://powderblue-termite-675995.hostingersite.com");
-    header("Access-Control-Allow-Methods: POST, OPTIONS");
-    header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-    header("Access-Control-Max-Age: 3600");
     http_response_code(200);
     exit();
 }
-
 
 include_once(__DIR__ . '/../config/database.php');
 
