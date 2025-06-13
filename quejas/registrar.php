@@ -1,6 +1,6 @@
 <?php
 // CORS para dominio específico
-header("Access-Control-Allow-Origin: https://powderblue-termite-675995.hostingersite.com");
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 header("Access-Control-Max-Age: 3600");
