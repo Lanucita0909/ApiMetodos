@@ -1,13 +1,12 @@
 FROM php:8.1-cli
 
-# Crear carpeta de trabajo
+RUN apt-get update && apt-get install -y libpq-dev libzip-dev unzip libpng-dev libonig-dev libxml2-dev default-mysql-client
+
+RUN docker-php-ext-install pdo pdo_mysql
+
+COPY . /app
 WORKDIR /app
 
-# Copiar todo el proyecto
-COPY . /app
-
-# Exponer puerto alternativo (por ejemplo 8080)
 EXPOSE 8080
 
-# Comando para iniciar servidor embebido apuntando a index.php
 CMD ["php", "-S", "0.0.0.0:8080", "index.php"]
