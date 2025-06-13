@@ -18,6 +18,9 @@ switch ($request_uri) {
     case '/quejas/grafico':
         require_once 'quejas/graficoC.php';
         break;
+    case '/quejas/listarNombre':
+        require_once 'quejas/listarNombre.php';
+        break;
     default:
         echo json_encode(array("message" => "Ruta no encontrada"));
         break;
