@@ -1,11 +1,9 @@
 <?php
-// Permitir solicitudes CORS (para que pueda ser consumido desde otros dominios)
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Content-Type: application/json; charset=UTF-8");
 
-
-$request_uri = $_SERVER['REQUEST_URI'];
+$request_uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $request_method = $_SERVER['REQUEST_METHOD'];
 
 switch ($request_uri) {
@@ -25,4 +23,3 @@ switch ($request_uri) {
         echo json_encode(array("message" => "Ruta no encontrada"));
         break;
 }
-?>
