@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
-include_once '../config/database.php';
+include_once(__DIR__ . '/../config/database.php');
 
 $database = new Database();
 $db = $database->getConnection();
